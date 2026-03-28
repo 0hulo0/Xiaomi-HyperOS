@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xiaomi HyperOS 3 PC 版 - 体验全新澎湃系统</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- 自定义配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        xiaomi: {
+                            red: '#FF6700',
+                            dark: '#111111',
+                            light: '#F5F5F5',
+                            blue: '#0066CC'
+                        }
+                    },
+                    fontFamily: {
+                        mi: ['Inter', 'system-ui', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(50px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .bg-gradient-mi {
+                background: linear-gradient(135deg, #FF6700 0%, #FF8A33 100%);
+            }
+            .transition-all-300 {
+                transition: all 0.3s ease;
+            }
+        }
+        
+        /* 全局样式 */
+        body {
+            scroll-behavior: smooth;
+        }
+        
+        /* 滚动渐显元素基础样式 */
+        .fade-element {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-element.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="font-mi bg-white text-xiaomi-dark">
+    <!-- 顶部导航栏 -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm transition-all-300">
+        <div class="container mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <!-- 蓝色环形图标 -->
+                <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/7879ff6980e044a388444117c7f33fd8.png~tplv-a9rns2rl98-24:720:720.png?lk3s=8e244e95&rcl=202603282019191F9C8B975DD68C4CD17D&rrcfp=8a172a1a&x-expires=1775305159&x-signature=MG%2B%2Btzcou5UOfuGFAtLtfNcOsO0%3D" 
+                     alt="HyperOS图标" 
+                     class="w-8 h-8 object-contain">
+                <span class="text-xl font-bold">HyperOS 3 PC</span>
+            </div>
+            <div class="text-sm text-gray-500 md:block hidden">
+                <span class="font-semibold text-red-500">非官方网站</span> | 与小米(Xiaomi)无任何关联
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区 -->
+    <section class="pt-28 pb-20 md:pt-40 md:pb-32 bg-xiaomi-light relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-xiaomi-red/5 to-xiaomi-blue/5 -z-10"></div>
+        <div class="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center gap-10">
+            <div class="md:w-1/2 animate-fade-in">
+                <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-4 text-shadow">
+                    Xiaomi HyperOS 3 <br>
+                    <span class="text-xiaomi-red">PC 版</span>
+                </h1>
+                <p class="text-lg text-gray-600 mb-8 max-w-lg">
+                    融合移动端与桌面端的极致体验，流畅、高效、智能的全新操作系统，为你的PC带来澎湃动力。
+                </p>
+                <div class="flex gap-4">
+                    <a href="#download" class="bg-gradient-mi text-white px-8 py-3 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all-300 transform hover:-translate-y-1">
+                        立即下载
+                    </a>
+                    <a href="#features" class="border border-xiaomi-red text-xiaomi-red px-8 py-3 rounded-lg font-medium hover:bg-xiaomi-red/5 transition-all-300">
+                        了解特性
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 animate-slide-up">
+                <!-- HyperOS 3 PC版界面图片 -->
+                <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/698635bd81e54b399bacbe010a0f072f.png~tplv-a9rns2rl98-24:720:720.png?lk3s=8e244e95&rcl=20260328202329B00783FA617A0A9F9470&rrcfp=8a172a1a&x-expires=1775305409&x-signature=iUVNw7yvTej2d43uKxB9YeWsr2k%3D" 
+                     alt="HyperOS 3 PC版界面" 
+                     class="w-full rounded-2xl shadow-2xl transform hover:scale-[1.02] transition-all-300">
+            </div>
+        </div>
+        <!-- 移动端免责声明 -->
+        <div class="container mx-auto px-4 mt-8 text-sm text-gray-500 md:hidden">
+            <span class="font-semibold text-red-500">非官方网站</span> | 与小米(Xiaomi)无任何关联
+        </div>
+    </section>
+
+    <!-- 核心特性区 -->
+    <section id="features" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-center mb-16 fade-element">核心特性</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 特性1 -->
+                <div class="bg-xiaomi-light rounded-xl p-8 shadow-md hover:shadow-lg transition-all-300 fade-element">
+                    <i class="fa-solid fa-bolt text-xiaomi-red text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">极致流畅</h3>
+                    <p class="text-gray-600">全新内核优化，启动速度提升30%，多任务处理更高效，告别卡顿。</p>
+                </div>
+                
+                <!-- 特性2 -->
+                <div class="bg-xiaomi-light rounded-xl p-8 shadow-md hover:shadow-lg transition-all-300 fade-element">
+                    <i class="fa-solid fa-mobile-screen-button text-xiaomi-red text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">跨端互联</h3>
+                    <p class="text-gray-600">无缝连接小米手机、平板、电视，文件互传、应用接续，体验一体化。</p>
+                </div>
+                
+                <!-- 特性3 -->
+                <div class="bg-xiaomi-light rounded-xl p-8 shadow-md hover:shadow-lg transition-all-300 fade-element">
+                    <i class="fa-solid fa-shield-halved text-xiaomi-red text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">安全防护</h3>
+                    <p class="text-gray-600">内置多重安全机制，实时防护隐私安全，抵御恶意软件与网络攻击。</p>
+                </div>
+                
+                <!-- 特性4 -->
+                <div class="bg-xiaomi-light rounded-xl p-8 shadow-md hover:shadow-lg transition-all-300 fade-element">
+                    <i class="fa-solid fa-palette text-xiaomi-red text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">个性化定制</h3>
+                    <p class="text-gray-600">丰富的主题、壁纸、图标样式，打造专属你的桌面视觉体验。</p>
+                </div>
+                
+                <!-- 特性5 -->
+                <div class="bg-xiaomi-light rounded-xl p-8 shadow-md hover:shadow-lg transition-all-300 fade-element">
+                    <i class="fa-solid fa-battery-full text-xiaomi-red text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">功耗优化</h3>
+                    <p class="text-gray-600">智能功耗管理，笔记本续航提升25%，兼顾性能与续航。</p>
+                </div>
+                
+                <!-- 特性6 -->
+                <div class="bg-xiaomi-light rounded-xl p-8 shadow-md hover:shadow-lg transition-all-300 fade-element">
+                    <i class="fa-solid fa-code text-xiaomi-red text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">生态兼容</h3>
+                    <p class="text-gray-600">兼容主流Windows应用与硬件，无需担心软件适配问题。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 下载区（核心修改：替换下载链接） -->
+    <section id="download" class="py-20 bg-xiaomi-dark text-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-center mb-4 fade-element">下载中心</h2>
+            <p class="text-gray-300 text-center mb-12 max-w-2xl mx-auto fade-element">
+                选择适合你的版本，体验全新的HyperOS 3 PC版（注：所有下载资源仅为体验用途）
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- 原版OS下载 -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20 hover:border-xiaomi-red transition-all-300 fade-element">
+                    <div class="flex items-center gap-4 mb-6">
+                        <i class="fa-solid fa-download text-xiaomi-red text-2xl"></i>
+                        <h3 class="text-xl font-bold">HyperOS 3 PC 原版</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        小米澎湃OS 3 PC官方基础版本（暂未提供下载）
+                    </p>
+                    <button class="w-full bg-white/20 hover:bg-white/30 text-white py-3 rounded-lg transition-all-300 flex items-center justify-center gap-2" disabled>
+                        <i class="fa-solid fa-clock"></i>
+                        暂未开放下载
+                    </button>
+                </div>
+                
+                <!-- Windows仿版下载（已替换新链接） -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20 hover:border-xiaomi-red transition-all-300 fade-element">
+                    <div class="flex items-center gap-4 mb-6">
+                        <i class="fa-brands fa-windows text-xiaomi-red text-2xl"></i>
+                        <h3 class="text-xl font-bold">Windows 仿HyperOS版</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        Windows系统仿小米HyperOS 3界面美化包（非官方）
+                    </p>
+                    <a href="https://www.123684.com/s/5qRpjv-DoQd3" 
+                       target="_blank" 
+                       class="w-full bg-xiaomi-red hover:bg-xiaomi-red/90 text-white py-3 rounded-lg transition-all-300 flex items-center justify-center gap-2 transform hover:-translate-y-1">
+                        <i class="fa-solid fa-arrow-down"></i>
+                        立即下载
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 免责声明 -->
+            <div class="mt-16 text-center text-sm text-gray-400 fade-element">
+                <p class="mb-2"><strong>重要声明：</strong>本网站为非官方网站，与小米(Xiaomi)公司无任何隶属关系</p>
+                <p>本站提供的下载资源仅用于技术研究和体验，请勿用于商业用途，如有侵权请联系删除</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="py-8 bg-black text-gray-500 text-center text-sm">
+        <div class="container mx-auto px-4">
+            <p>© 2025 HyperOS 3 PC 体验站（非官方） - 仅供学习交流使用</p>
+        </div>
+    </footer>
+
+    <!-- 滚动动画脚本 -->
+    <script>
+        // 监听滚动，实现元素渐显动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-element');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // 导航栏滚动效果
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('py-2', 'shadow-md');
+                    header.classList.remove('py-4', 'shadow-sm');
+                } else {
+                    header.classList.add('py-4', 'shadow-sm');
+                    header.classList.remove('py-2', 'shadow-md');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
